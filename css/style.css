@@ -3,7 +3,7 @@
    Black & Purple | Modern Fintech | 3-Page Site
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap');
+/* Fonts loaded via <link> in HTML for better performance */
 
 /* ─── Tokens ─── */
 :root {
@@ -36,7 +36,18 @@
 
 /* ─── Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent iOS from auto-scaling text */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+/* Prevent 300ms tap delay on all interactive elements */
+a, button, [role="button"], .btn, .faq-q, .hamburger, label { touch-action: manipulation; }
+/* Prevent iOS zoom on input focus (font-size must be >= 16px) */
+input, select, textarea { font-size: max(16px, 1rem); }
 body {
   background: var(--bg);
   color: var(--text);
@@ -153,6 +164,16 @@ p { color: var(--text-2); }
   color: var(--text-m); transition: color 200ms;
 }
 .mobile-nav a:hover { color: var(--text); }
+/* Override nav-link font styles when used as a button inside mobile nav */
+.mobile-nav a.btn {
+  font-size: 1rem;
+  width: 260px;
+  max-width: 80vw;
+  justify-content: center;
+  margin-top: 4px;
+}
+.mobile-nav a.btn-primary { color: #fff; }
+.mobile-nav a.btn-ghost { color: var(--text-2); }
 
 /* ─── Buttons ─── */
 .btn {
@@ -811,8 +832,8 @@ p { color: var(--text-2); }
    RESPONSIVE
    ==================================================== */
 @media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 56px; }
-  .hero-desc { max-width: 100%; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-desc { max-width: 100%; text-align: center; }
   .hero-actions { justify-content: center; }
   .hero-trust { justify-content: center; }
   .hero-badges { justify-content: center; }
@@ -843,34 +864,134 @@ p { color: var(--text-2); }
   .nav-links, .nav-actions .btn-ghost { display: none; }
   .hamburger { display: flex; }
   .mobile-nav { display: flex; }
-  h1 { font-size: clamp(2.2rem, 9vw, 3.6rem); }
-  h2 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
-  .section { padding-block: 64px; }
-  .section-sm { padding-block: 48px; }
+
+  h1 { font-size: clamp(2.1rem, 8.5vw, 3.4rem); }
+  h2 { font-size: clamp(1.65rem, 5.5vw, 2.3rem); }
+
+  /* Sections: less vertical whitespace on mobile */
+  .section { padding-block: 60px; }
+  .section-sm { padding-block: 40px; }
+  .section-header { margin-bottom: 40px; }
+  .section-header p { font-size: 1rem; }
+
+  /* Hero: reduce top padding so content isn't pushed far down */
+  .hero { padding-top: calc(var(--nav-h) + 44px); padding-bottom: 60px; min-height: auto; }
+  .hero-desc { font-size: 1rem; line-height: 1.65; }
+
+  /* Page hero (Services / About) */
+  .page-hero { padding-top: calc(var(--nav-h) + 44px); padding-bottom: 52px; }
+  .page-hero p { font-size: 1rem; }
+
+  /* Cards: tighter padding on mobile */
+  .card { padding: 24px; }
+
+  /* Buttons: ensure minimum 44px touch target */
+  .btn-sm { min-height: 44px; padding: 10px 20px; }
+
+  /* Grids */
   .features-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin-inline: auto; }
-  .how-grid { grid-template-columns: 1fr; gap: 32px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+  .how-grid { grid-template-columns: 1fr; gap: 28px; }
   .how-connector { display: none; }
   .t-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr 1fr; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .trust-logos { gap: 28px; }
-  .iphone { width: 268px; height: 570px; }
-  .iphone-glow { width: 280px; height: 280px; }
+
+  /* Footer: brand spans full row, 3 link cols side by side */
+  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 16px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-col h4 { font-size: 0.78rem; margin-bottom: 12px; }
+  .footer-col a { font-size: 0.82rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-legal { flex-wrap: wrap; gap: 12px; }
+
+  .trust-logos { gap: 24px; }
+
+  /* iPhone: scaled to fit comfortably */
+  .iphone { width: 256px; height: 544px; border-radius: 50px; }
+  .iphone-glow { width: 260px; height: 260px; }
+  .iphone-outer-glow { width: 288px; height: 560px; }
+
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
-  .container { padding-inline: 18px; }
+  .container { padding-inline: 16px; }
+
+  h1 { font-size: clamp(1.9rem, 7.5vw, 2.8rem); }
+
+  .section { padding-block: 48px; }
+  .section-sm { padding-block: 32px; }
+  .section-header { margin-bottom: 32px; }
+
+  /* Hero: more aggressive padding reduction */
+  .hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 44px; }
+  .page-hero { padding-top: calc(var(--nav-h) + 28px); padding-bottom: 36px; }
+
+  /* Cards */
+  .card { padding: 20px; }
+
+  /* Hero actions: stack buttons full width */
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-lg { width: 100%; justify-content: center; }
+  /* But don't force CTA section buttons full width */
+  .cta-actions .btn-lg { width: auto; }
+  .cta-actions { flex-direction: column; align-items: center; }
+
+  /* Footer: collapse to single column on small phones */
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-brand { grid-column: auto; }
+
+  /* iPhone: smaller on small phones */
+  .iphone { width: 224px; height: 474px; border-radius: 44px; padding: 12px; }
+  .iphone-glow { width: 220px; height: 220px; }
+  .iphone-outer-glow { width: 256px; height: 490px; }
+  .di { width: 92px; height: 28px; top: 12px; }
+  .app-hdr { padding-top: 50px; padding-inline: 16px; }
+
+  /* Grids */
   .values-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr 1fr; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .btn-lg { width: 100%; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { max-width: 100%; }
+
+  .trust-logos { gap: 18px; }
+
+  /* FAQ: tighter padding */
+  .faq-q { padding: 14px 16px; font-size: 0.9rem; }
+  .faq-a { padding: 0 16px; }
+  .faq-item.open .faq-a { padding: 14px 16px 18px; }
+
+  /* How-it-works: less gap */
+  .how-num { width: 60px; height: 60px; font-size: 1.1rem; margin-bottom: 18px; }
+}
+
+/* Very small phones (SE, older Androids) */
+@media (max-width: 380px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.05rem; }
+
+  .hero-desc { font-size: 0.95rem; }
+  .section-label { font-size: 0.68rem; }
+
+  /* iPhone: smallest size */
+  .iphone { width: 200px; height: 424px; border-radius: 40px; padding: 10px; }
+  .iphone-screen { border-radius: 32px; }
+  .iphone-glow { width: 200px; height: 200px; }
+  .iphone-outer-glow { width: 228px; height: 440px; }
+  .di { width: 80px; height: 26px; top: 10px; }
+  .app-hdr { padding-top: 44px; padding-inline: 12px; }
+  .app-bal-amount { font-size: 1.2rem; }
+
+  /* Mobile nav text */
+  .mobile-nav a:not(.btn) { font-size: 1.75rem; }
+
+  /* Stats: ensure they don't overflow */
+  .stat-val { font-size: 1.6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
