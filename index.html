@@ -2,63 +2,581 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VioletBank — Modern Fintech</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VioletBank — The Future of Financial Freedom</title>
+  <meta name="description" content="Seamless banking for modern individuals and enterprises. Instant transfers, bank-grade security, and AI-powered analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="container header">
-    <div class="logo nav-fade"><img src="assets/logo.svg" alt="logo" height="38"></div>
-    <nav class="nav nav-fade">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero">
+<!-- Ambient background blobs -->
+<div class="blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- ─── Navigation ─── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="VioletBank home">
+      <img src="assets/logo.svg" alt="VioletBank" height="36" style="display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="signin.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="services.html" class="btn btn-primary btn-sm">Get started
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="btn btn-primary btn-lg" style="margin-top:12px;">Get started</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: copy -->
       <div>
-        <h1 class="fade-up">Banking reimagined for modern teams</h1>
-        <p class="lead fade-up">A minimal, secure finance platform that scales with ambitious startups and enterprises.</p>
-        <a class="cta fade-up" href="#contact">Get early access</a>
+        <div class="hero-eyebrow reveal">
+          <span class="section-label">&#x2728; Introducing VioletBank 2.0</span>
+        </div>
 
-        <div class="features fade-up" style="margin-top:36px">
-          <div class="card feature">
-            <h3>Fast Onboarding</h3>
-            <p class="muted">Open accounts in minutes with streamlined KYC flows.</p>
+        <h1 id="hero-heading" class="reveal d1">
+          The Future of<br>
+          <span class="g-text">Financial<br>Freedom</span>
+        </h1>
+
+        <p class="hero-desc reveal d2">
+          VioletBank combines cutting-edge technology with financial expertise to deliver seamless banking experiences — for individuals and enterprises that demand more.
+        </p>
+
+        <div class="hero-actions reveal d3">
+          <a href="services.html" class="btn btn-primary btn-lg">
+            Open an account free
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="#how" class="btn btn-outline btn-lg">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><path d="M6 10l4-2-4-2v4z" fill="currentColor" stroke="none"/></svg>
+            See how it works
+          </a>
+        </div>
+
+        <div class="hero-trust reveal d4">
+          <div class="hero-avatars" aria-hidden="true">
+            <div class="hero-av">AK</div>
+            <div class="hero-av">SM</div>
+            <div class="hero-av">JR</div>
+            <div class="hero-av">+</div>
           </div>
-          <div class="card feature">
-            <h3>Programmatic APIs</h3>
-            <p class="muted">Powerful REST APIs to automate payouts and reconciliation.</p>
-          </div>
-          <div class="card feature">
-            <h3>Enterprise-grade Security</h3>
-            <p class="muted">SOC2-ready controls, encryption, and audit trails.</p>
+          <p class="hero-trust-label">
+            <strong>500,000+</strong> members already banking smarter
+          </p>
+        </div>
+
+        <div class="hero-badges reveal d5">
+          <span class="hero-badge">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2L2 5v5c0 3 2.8 5.3 6 6 3.2-.7 6-3 6-6V5z"/></svg>
+            256-bit encryption
+          </span>
+          <span class="hero-badge">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 1l1.8 3.7 4 .6-2.9 2.8.7 4L8 10.1 4.4 12l.7-4L2.2 5.3l4-.6z"/></svg>
+            SOC 2 Type II
+          </span>
+          <span class="hero-badge">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="12" height="8" rx="2"/><path d="M5 6V4a3 3 0 016 0v2"/></svg>
+            FDIC Insured
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: iPhone Mockup -->
+      <div class="iphone-wrapper reveal-scale d2">
+        <div class="iphone-glow" aria-hidden="true"></div>
+        <div class="iphone-outer-glow" aria-hidden="true"></div>
+
+        <div class="iphone" role="img" aria-label="VioletBank mobile app preview">
+          <!-- Physical buttons -->
+          <div class="iphone-btn iphone-mute"  aria-hidden="true"></div>
+          <div class="iphone-btn iphone-vol-u" aria-hidden="true"></div>
+          <div class="iphone-btn iphone-vol-d" aria-hidden="true"></div>
+          <div class="iphone-btn iphone-power" aria-hidden="true"></div>
+
+          <div class="iphone-screen">
+            <div class="di" aria-hidden="true"></div>
+
+            <div class="app">
+              <!-- App Header -->
+              <div class="app-hdr">
+                <div class="app-hdr-row">
+                  <div>
+                    <div class="app-greeting">Good morning,</div>
+                    <div class="app-user-name">Alex Johnson</div>
+                  </div>
+                  <div class="app-bell" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+                    <div class="app-bell-dot"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Balance Card -->
+              <div class="app-card" aria-label="Total balance: $24,891.50">
+                <div class="app-chip" aria-hidden="true"></div>
+                <div class="app-bal-label">TOTAL BALANCE</div>
+                <div class="app-bal-amount">$24,891.50</div>
+                <div class="app-card-row">
+                  <div class="app-card-info">
+                    <label>Card holder</label>
+                    <span>Alex Johnson</span>
+                  </div>
+                  <div class="app-card-info">
+                    <label>Expires</label>
+                    <span>09 / 28</span>
+                  </div>
+                  <div class="app-card-change" aria-label="Up 4.2%">
+                    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M8 12V4M4 8l4-4 4 4"/></svg>
+                    4.2%
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Actions -->
+              <div class="app-actions" role="list" aria-label="Quick actions">
+                <div class="app-act" role="listitem">
+                  <div class="app-act-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                  </div>
+                  <div class="app-act-label">Send</div>
+                </div>
+                <div class="app-act" role="listitem">
+                  <div class="app-act-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                  </div>
+                  <div class="app-act-label">Receive</div>
+                </div>
+                <div class="app-act" role="listitem">
+                  <div class="app-act-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                  </div>
+                  <div class="app-act-label">Cards</div>
+                </div>
+                <div class="app-act" role="listitem">
+                  <div class="app-act-ico" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  </div>
+                  <div class="app-act-label">History</div>
+                </div>
+              </div>
+
+              <!-- Transactions -->
+              <div class="app-sec-title">Recent Transactions</div>
+              <div class="app-txs" role="list" aria-label="Recent transactions">
+
+                <div class="app-tx" role="listitem">
+                  <div class="app-tx-ico" style="background:rgba(74,222,128,0.12);" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                  </div>
+                  <div class="app-tx-info">
+                    <div class="app-tx-name">Salary Deposit</div>
+                    <div class="app-tx-date">Today, 9:01 AM</div>
+                  </div>
+                  <div class="app-tx-amt cr">+$4,250.00</div>
+                </div>
+
+                <div class="app-tx" role="listitem">
+                  <div class="app-tx-ico" style="background:rgba(139,92,246,0.12);" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                  </div>
+                  <div class="app-tx-info">
+                    <div class="app-tx-name">Spotify Premium</div>
+                    <div class="app-tx-date">Yesterday, 11:32 PM</div>
+                  </div>
+                  <div class="app-tx-amt db">-$9.99</div>
+                </div>
+
+                <div class="app-tx" role="listitem">
+                  <div class="app-tx-ico" style="background:rgba(251,191,36,0.12);" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+                  </div>
+                  <div class="app-tx-info">
+                    <div class="app-tx-name">Amazon Purchase</div>
+                    <div class="app-tx-date">Dec 10, 2:14 PM</div>
+                  </div>
+                  <div class="app-tx-amt db">-$67.43</div>
+                </div>
+
+                <div class="app-tx" role="listitem">
+                  <div class="app-tx-ico" style="background:rgba(74,222,128,0.12);" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                  </div>
+                  <div class="app-tx-info">
+                    <div class="app-tx-name">Transfer from Mike</div>
+                    <div class="app-tx-date">Dec 9, 6:48 PM</div>
+                  </div>
+                  <div class="app-tx-amt cr">+$150.00</div>
+                </div>
+
+              </div><!-- /app-txs -->
+
+              <!-- Bottom Nav -->
+              <nav class="app-bnav" aria-label="App navigation">
+                <div class="app-bnav-item on" aria-current="page">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  <span>Home</span>
+                </div>
+                <div class="app-bnav-item off">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                  <span>History</span>
+                </div>
+                <div class="app-bnav-item off">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+                  <span>Cards</span>
+                </div>
+                <div class="app-bnav-item off">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Profile</span>
+                </div>
+              </nav>
+
+            </div><!-- /app -->
+          </div><!-- /iphone-screen -->
+        </div><!-- /iphone -->
+      </div><!-- /iphone-wrapper -->
+
+    </div><!-- /hero-grid -->
+  </div>
+</section>
+
+<!-- ─── Trust logos ─── -->
+<div class="trust-bar reveal">
+  <div class="container">
+    <p class="trust-label">Trusted by teams at</p>
+    <div class="trust-logos">
+      <span class="trust-logo">Stripe</span>
+      <span class="trust-logo">Shopify</span>
+      <span class="trust-logo">Notion</span>
+      <span class="trust-logo">Linear</span>
+      <span class="trust-logo">Vercel</span>
+      <span class="trust-logo">Figma</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal d1">
+        <span class="stat-val" data-target="2.4" data-suffix="B+" data-prefix="$" data-dec="1">$0B+</span>
+        <p class="stat-lbl">Processed annually</p>
+      </div>
+      <div class="stat reveal d2">
+        <span class="stat-val" data-target="500" data-suffix="K+" >0K+</span>
+        <p class="stat-lbl">Active members</p>
+      </div>
+      <div class="stat reveal d3">
+        <span class="stat-val" data-target="140" data-suffix="+">0+</span>
+        <p class="stat-lbl">Countries supported</p>
+      </div>
+      <div class="stat reveal d4">
+        <span class="stat-val" data-target="99.99" data-suffix="%" data-dec="2">0%</span>
+        <p class="stat-lbl">Uptime guarantee</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FEATURES
+     ═══════════════════════════════════════ -->
+<section class="section" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Core capabilities</div>
+      <h2 id="features-heading" class="reveal d1">Built for speed.<br>Designed for trust.</h2>
+      <p class="reveal d2">Everything you need to move money confidently — from instant payments to enterprise-grade security and intelligent analytics.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="card feat-card reveal d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Instant Global Transfers</h3>
+        <p>Send money anywhere in the world in seconds — not days. 140+ currencies, zero hidden fees, competitive exchange rates guaranteed.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="card feat-card reveal d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Bank-Grade Security</h3>
+        <p>SOC 2 Type II certified with 256-bit AES encryption, biometric authentication, real-time fraud detection, and FDIC-insured deposits up to $250K.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="card feat-card reveal d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke-linecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke-linecap="round"/></svg>
+        </div>
+        <h3>AI-Powered Analytics</h3>
+        <p>Our machine-learning engine categorizes your spending automatically, forecasts cash flow, and surfaces insights that help you make smarter decisions.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="card feat-card reveal d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" stroke-linecap="round"/><path d="M1 10h22" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Smart Debit & Credit Cards</h3>
+        <p>Virtual and physical cards with real-time spend controls, granular merchant locking, and automatic cashback on eligible categories.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="card feat-card reveal d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Powerful REST API</h3>
+        <p>Comprehensive developer tooling with webhooks, sandbox environments, detailed logs, and SDKs for every major language — go live in hours, not weeks.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+      <div class="card feat-card reveal d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-linecap="round"/><line x1="2" y1="12" x2="22" y2="12" stroke-linecap="round"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Global Compliance Engine</h3>
+        <p>Built-in KYC/AML flows, automated regulatory reporting, and jurisdiction-aware rule sets so you stay compliant as you scale across borders.</p>
+        <a href="services.html" class="feat-link">Learn more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+     ═══════════════════════════════════════ -->
+<section id="how" class="section how-bg" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Simple process</div>
+      <h2 id="how-heading" class="reveal d1">Up and running<br>in minutes</h2>
+      <p class="reveal d2">No branch visits. No mountains of paperwork. Just a simple, digital onboarding designed for the modern world.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-connector" aria-hidden="true"></div>
+
+      <div class="how-step reveal d1">
+        <div class="how-num" aria-hidden="true">01</div>
+        <h3>Create your account</h3>
+        <p>Sign up in under 5 minutes. Verify your identity with our streamlined digital KYC — no physical documents required.</p>
+      </div>
+      <div class="how-step reveal d2">
+        <div class="how-num" aria-hidden="true">02</div>
+        <h3>Fund your wallet</h3>
+        <p>Connect your existing bank, deposit via card, or receive a wire. Your funds are available and protected from minute one.</p>
+      </div>
+      <div class="how-step reveal d3">
+        <div class="how-num" aria-hidden="true">03</div>
+        <h3>Start transacting</h3>
+        <p>Send, receive, and manage money globally from your phone or dashboard. Every transaction, beautifully summarized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+     ═══════════════════════════════════════ -->
+<section class="section" aria-labelledby="t-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal">Real stories</div>
+      <h2 id="t-heading" class="reveal d1">Loved by people<br>who demand more</h2>
+    </div>
+
+    <div class="t-grid">
+
+      <div class="card t-card reveal d1">
+        <div class="t-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">"VioletBank transformed how we manage international payroll. Transfers that used to take three days now happen in seconds. Our finance team is genuinely delighted."</p>
+        <div class="t-author">
+          <div class="t-av" aria-hidden="true">SC</div>
+          <div>
+            <p class="t-name">Sarah Chen</p>
+            <p class="t-role">CFO, NovaTech Inc.</p>
           </div>
         </div>
       </div>
 
-      <aside class="card fade-up" style="height:320px;display:flex;align-items:center;justify-content:center">
-        <div style="text-align:center">
-          <h3 style="margin:0 0 8px 0">Live Dashboard</h3>
-          <p class="muted" style="margin:0">Real-time balances and transaction streams.</p>
+      <div class="card t-card reveal d2">
+        <div class="t-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-      </aside>
-    </section>
-
-    <section id="contact" style="margin-top:48px">
-      <div class="card fade-up">
-        <h3>Request access</h3>
-        <p class="muted">Email us at <a href="mailto:hello@violetbank.example">hello@violetbank.example</a></p>
+        <p class="t-quote">"The API is a dream to work with. We integrated VioletBank's payment rails into our platform in two days. The documentation is the best I've seen in fintech, period."</p>
+        <div class="t-author">
+          <div class="t-av" aria-hidden="true">MR</div>
+          <div>
+            <p class="t-name">Marcus Reid</p>
+            <p class="t-role">Lead Engineer, Flowstack</p>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="container footer">
-    © 2026 VioletBank — Built with care
-  </footer>
+      <div class="card t-card reveal d3">
+        <div class="t-stars" aria-label="5 out of 5 stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="t-quote">"As a freelancer working with clients in 12 countries, VioletBank saves me hundreds in fees every month. The exchange rates are actually fair. I wish I'd found this years ago."</p>
+        <div class="t-author">
+          <div class="t-av" aria-hidden="true">AO</div>
+          <div>
+            <p class="t-name">Amara Okafor</p>
+            <p class="t-role">Independent Designer</p>
+          </div>
+        </div>
+      </div>
 
-  <script src="js/main.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CTA BANNER
+     ═══════════════════════════════════════ -->
+<section class="section cta-section" aria-labelledby="cta-heading">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label reveal" style="margin-inline:auto;">Join 500K+ members</div>
+      <h2 id="cta-heading" class="reveal d1">Ready to bank<br>without limits?</h2>
+      <p class="reveal d2">Open a free account in minutes. No monthly fees, no minimum balance. Just a better way to manage your money — anywhere in the world.</p>
+      <div class="cta-actions reveal d3">
+        <a href="services.html" class="btn btn-primary btn-lg">
+          Start for free
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="about.html" class="btn btn-outline btn-lg">Learn our story</a>
+      </div>
+      <p class="cta-note reveal d4">No credit card required &nbsp;·&nbsp; FDIC Insured &nbsp;·&nbsp; Cancel anytime</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="assets/logo.svg" alt="VioletBank" height="32">
+        </div>
+        <p class="footer-desc">The financial platform built for the way the world works today — instant, borderless, and secure.</p>
+        <div class="footer-socials" aria-label="Social media links">
+          <a href="#" class="footer-soc" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="#" class="footer-soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="footer-soc" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="services.html">Personal banking</a></li>
+          <li><a href="services.html">Business banking</a></li>
+          <li><a href="services.html">Developer API</a></li>
+          <li><a href="services.html">Pricing</a></li>
+          <li><a href="services.html">Integrations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html">Our team</a></li>
+          <li><a href="about.html">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Status page</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 VioletBank, Inc. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

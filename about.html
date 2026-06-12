@@ -2,40 +2,430 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>VioletBank — About</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VioletBank — About Us</title>
+  <meta name="description" content="Learn the story behind VioletBank — our mission, team, and commitment to making global finance accessible to everyone." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="container header">
-    <div class="logo nav-fade"><img src="assets/logo.svg" alt="logo" height="38"></div>
-    <nav class="nav nav-fade">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <h2 class="fade-up">About VioletBank</h2>
-    <p class="lead fade-up">We build secure financial infrastructure for teams that scale.</p>
+<div class="blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
 
-    <section style="margin-top:28px">
-      <div class="card fade-up">
-        <h3>Our mission</h3>
-        <p class="muted">Make financial infrastructure invisible — fast, secure, and fair.</p>
+<!-- ─── Navigation ─── -->
+<nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="VioletBank home">
+      <img src="assets/logo.svg" alt="VioletBank" height="36" style="display:block;">
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="signin.html" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="services.html" class="btn btn-primary btn-sm">Get started
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-nav" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="services.html" class="btn btn-primary btn-lg" style="margin-top:12px;">Get started</a>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PAGE HERO
+     ═══════════════════════════════════════ -->
+<section class="page-hero" aria-labelledby="about-heading">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-label reveal" style="margin-inline:auto; display:inline-flex;">Our story</div>
+    <h1 id="about-heading" class="reveal d1">
+      Finance should work<br>
+      <span class="g-text">for everyone.</span>
+    </h1>
+    <p class="reveal d2">We started VioletBank because the global financial system was broken — slow, opaque, and tilted against individuals. We're building the alternative.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     IMPACT NUMBERS
+     ═══════════════════════════════════════ -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-item reveal d1">
+        <span class="impact-num" data-target="2020" data-suffix="">0</span>
+        <p class="impact-label">Founded</p>
+      </div>
+      <div class="impact-item reveal d2">
+        <span class="impact-num" data-target="500" data-suffix="K+">0</span>
+        <p class="impact-label">Active users</p>
+      </div>
+      <div class="impact-item reveal d3">
+        <span class="impact-num" data-target="2.4" data-suffix="B+" data-prefix="$" data-dec="1">$0</span>
+        <p class="impact-label">Processed</p>
+      </div>
+      <div class="impact-item reveal d4">
+        <span class="impact-num" data-target="48" data-suffix="">0</span>
+        <p class="impact-label">Team members</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MISSION
+     ═══════════════════════════════════════ -->
+<section class="section" aria-labelledby="mission-heading">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+
+      <div class="reveal-left">
+        <div class="section-label" style="margin-bottom:20px;">Our mission</div>
+        <h2 id="mission-heading">Making global finance<br>truly accessible</h2>
+        <p style="margin-top:18px; font-size:1.05rem; line-height:1.76;">
+          Over 1.4 billion people worldwide remain excluded from basic financial services. Traditional banking is riddled with unnecessary friction, hidden fees, and geography-based discrimination.
+        </p>
+        <p style="margin-top:14px; font-size:1.05rem; line-height:1.76;">
+          VioletBank exists to eliminate those barriers. We believe that a student in Lagos, a freelancer in Manila, and a startup founder in Berlin should all have access to the same world-class financial infrastructure — instantly, affordably, and without compromise.
+        </p>
+        <div style="display:flex; gap:32px; margin-top:36px; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:var(--font-d); font-size:1.5rem; font-weight:800; color:var(--purple-l);">140+</div>
+            <div style="font-size:0.82rem; color:var(--text-m); margin-top:2px;">Countries served</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-d); font-size:1.5rem; font-weight:800; color:var(--purple-l);">$0</div>
+            <div style="font-size:0.82rem; color:var(--text-m); margin-top:2px;">Monthly fees on Starter</div>
+          </div>
+          <div>
+            <div style="font-family:var(--font-d); font-size:1.5rem; font-weight:800; color:var(--purple-l);">&lt;10s</div>
+            <div style="font-size:0.82rem; color:var(--text-m); margin-top:2px;">Transfer settlement</div>
+          </div>
+        </div>
       </div>
 
-      <div class="card fade-up" style="margin-top:16px">
-        <h3>Team</h3>
-        <p class="muted">Built by engineers and designers with deep payments experience.</p>
+      <div class="reveal-right">
+        <div class="card" style="padding:40px; background: linear-gradient(145deg, rgba(139,92,246,0.08), rgba(109,40,217,0.04)); border-color:rgba(139,92,246,0.2);">
+          <div style="font-family:var(--font-d); font-size:1.5rem; font-weight:700; line-height:1.4; margin-bottom:24px; color:var(--text);">
+            "The global financial system has an exclusion problem. We have a technology solution."
+          </div>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,rgba(139,92,246,0.4),rgba(109,40,217,0.6)); display:flex; align-items:center; justify-content:center; font-family:var(--font-d); font-weight:800; font-size:1rem; color:var(--purple-xl);">DN</div>
+            <div>
+              <div style="font-weight:700; font-size:0.95rem;">David Ngozi</div>
+              <div style="font-size:0.8rem; color:var(--text-m);">Co-founder &amp; CEO, VioletBank</div>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
-  </main>
 
-  <footer class="container footer">
-    © 2026 VioletBank
-  </footer>
-  <script src="js/main.js"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TEAM
+     ═══════════════════════════════════════ -->
+<section class="section how-bg" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal" style="margin-inline:auto;">The people</div>
+      <h2 id="team-heading" class="reveal d1">Built by a team<br>that's been there</h2>
+      <p class="reveal d2">Former engineers and operators from Stripe, Goldman Sachs, Google, and Revolut — united by a shared obsession with making finance better.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="card team-card reveal d1">
+        <div class="team-av" aria-hidden="true">DN</div>
+        <p class="team-name">David Ngozi</p>
+        <p class="team-role">Co-founder &amp; CEO</p>
+        <div class="team-socials" aria-label="David Ngozi's social links">
+          <a href="#" class="team-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="team-soc" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card team-card reveal d2">
+        <div class="team-av" aria-hidden="true">PL</div>
+        <p class="team-name">Priya Lakshmi</p>
+        <p class="team-role">Co-founder &amp; CTO</p>
+        <div class="team-socials" aria-label="Priya Lakshmi's social links">
+          <a href="#" class="team-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="team-soc" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card team-card reveal d3">
+        <div class="team-av" aria-hidden="true">JW</div>
+        <p class="team-name">James Wu</p>
+        <p class="team-role">Chief Operating Officer</p>
+        <div class="team-socials" aria-label="James Wu's social links">
+          <a href="#" class="team-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="team-soc" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="card team-card reveal d4">
+        <div class="team-av" aria-hidden="true">AV</div>
+        <p class="team-name">Aisha Vera</p>
+        <p class="team-role">Head of Design</p>
+        <div class="team-socials" aria-label="Aisha Vera's social links">
+          <a href="#" class="team-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="team-soc" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px;" class="reveal">
+      <p style="color:var(--text-m); margin-bottom:16px; font-size:0.9rem;">We're growing fast. Want to join us?</p>
+      <a href="#" class="btn btn-ghost">View open roles
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     VALUES
+     ═══════════════════════════════════════ -->
+<section class="section" aria-labelledby="values-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal" style="margin-inline:auto;">What drives us</div>
+      <h2 id="values-heading" class="reveal d1">Our values</h2>
+      <p class="reveal d2">These aren't wall posters. They're the principles every decision at VioletBank is measured against.</p>
+    </div>
+
+    <div class="values-grid">
+
+      <div class="card val-card reveal d1">
+        <div class="val-icon" style="background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.18);">
+          <svg viewBox="0 0 24 24" stroke="#A78BFA"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Security first</h3>
+        <p>Every feature, every line of code, every policy starts with the question: is this safe for our users? Security is never an afterthought.</p>
+      </div>
+
+      <div class="card val-card reveal d2">
+        <div class="val-icon" style="background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.18);">
+          <svg viewBox="0 0 24 24" stroke="#4ADE80"><circle cx="12" cy="12" r="10" stroke-linecap="round"/><path d="M12 8v4l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Radical transparency</h3>
+        <p>No hidden fees, no confusing terms. We publish our fee schedules, exchange rates, and policy changes in plain English before they happen.</p>
+      </div>
+
+      <div class="card val-card reveal d3">
+        <div class="val-icon" style="background:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.18);">
+          <svg viewBox="0 0 24 24" stroke="#FBBF24"><path d="M13 2L3 14h9l-1 8 10-12h-9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Speed as a feature</h3>
+        <p>Waiting is a form of disrespect. We obsess over milliseconds — in our product and in our support response times. Fast is never fast enough.</p>
+      </div>
+
+      <div class="card val-card reveal d1">
+        <div class="val-icon" style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.18);">
+          <svg viewBox="0 0 24 24" stroke="#38BDF8"><circle cx="12" cy="12" r="10" stroke-linecap="round"/><line x1="2" y1="12" x2="22" y2="12" stroke-linecap="round"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Global inclusion</h3>
+        <p>We design for the world — not just wealthy countries. Geography shouldn't determine whether someone has access to great financial services.</p>
+      </div>
+
+      <div class="card val-card reveal d2">
+        <div class="val-icon" style="background:rgba(244,63,94,0.1); border:1px solid rgba(244,63,94,0.18);">
+          <svg viewBox="0 0 24 24" stroke="#F43F5E"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Relentless innovation</h3>
+        <p>Finance is one of the oldest industries — and one of the least changed. We don't accept "that's how it's always been" as a reason to stay still.</p>
+      </div>
+
+      <div class="card val-card reveal d3">
+        <div class="val-icon" style="background:rgba(167,139,250,0.12); border:1px solid rgba(167,139,250,0.2);">
+          <svg viewBox="0 0 24 24" stroke="#A78BFA"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round"/><circle cx="9" cy="7" r="4" stroke-linecap="round"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round"/></svg>
+        </div>
+        <h3>User obsession</h3>
+        <p>Our users are not a metric. They're the reason we exist. Every product decision is grounded in real feedback, real use cases, and real impact.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TIMELINE
+     ═══════════════════════════════════════ -->
+<section class="section how-bg" aria-labelledby="tl-heading">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label reveal" style="margin-inline:auto;">Our journey</div>
+      <h2 id="tl-heading" class="reveal d1">Five years of<br><span class="g-text">building the future</span></h2>
+    </div>
+
+    <div class="timeline reveal">
+
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>Founded in Lagos &amp; London</h4>
+          <p>David and Priya meet at a fintech conference and discover a shared obsession with fixing cross-border payments. VioletBank is born in a co-working space in Lagos with $800K in pre-seed funding.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>Private beta launches</h4>
+          <p>2,000 hand-picked early adopters test the first version. Feedback is intense and honest. The team rebuilds the transfer engine from scratch to achieve &lt;10 second settlements — a milestone no competitor had hit.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2022</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>100K users &amp; Series A</h4>
+          <p>Public launch drives 100,000 sign-ups in the first 90 days. A $24M Series A from Sequoia and Ribbit Capital funds expansion into 40 new countries and the first version of the Business API.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>Enterprise tier &amp; 140 countries</h4>
+          <p>VioletBank Business launches with full API access, multi-user controls, and accounting integrations. Major enterprises including global NGOs and remote-first tech companies make the switch. Coverage expands to 140 countries.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2024</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>$1B processed milestone</h4>
+          <p>VioletBank crosses $1 billion in total payment volume. The AI analytics engine ships, turning raw transaction data into actionable financial insights for every user — free and paid alike.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2025</div>
+        <div class="tl-dot-col"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>500K members &amp; $2.4B processed</h4>
+          <p>Today, VioletBank serves over 500,000 individuals and 12,000 businesses across 140 countries, with $2.4B processed annually. We're just getting started — the world deserves better finance.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     INVESTORS / BACKED BY
+     ═══════════════════════════════════════ -->
+<section class="section-sm" style="position:relative;z-index:1;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <p class="trust-label" style="text-align:center; font-size:0.8rem; color:var(--text-m); letter-spacing:0.08em; text-transform:uppercase; font-weight:600; margin-bottom:28px;">Backed by world-class investors</p>
+    <div class="trust-logos reveal">
+      <span class="trust-logo" style="font-size:1.1rem;">Sequoia</span>
+      <span class="trust-logo" style="font-size:1.1rem;">Ribbit Capital</span>
+      <span class="trust-logo" style="font-size:1.1rem;">Andreessen Horowitz</span>
+      <span class="trust-logo" style="font-size:1.1rem;">Y Combinator</span>
+      <span class="trust-logo" style="font-size:1.1rem;">Accel</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="section cta-section">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label reveal" style="margin-inline:auto;">Join us</div>
+      <h2 class="reveal d1">Ready to be part<br>of the movement?</h2>
+      <p class="reveal d2">Whether you're an individual, a startup, or a global enterprise — VioletBank is built for you. Open an account and experience the difference today.</p>
+      <div class="cta-actions reveal d3">
+        <a href="services.html" class="btn btn-primary btn-lg">
+          Open free account
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-outline btn-lg">View pricing</a>
+      </div>
+      <p class="cta-note reveal d4">No credit card required &nbsp;·&nbsp; FDIC Insured &nbsp;·&nbsp; Cancel anytime</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-row"><img src="assets/logo.svg" alt="VioletBank" height="32"></div>
+        <p class="footer-desc">The financial platform built for the way the world works today — instant, borderless, and secure.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-soc" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#" class="footer-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="footer-soc" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="services.html">Personal banking</a></li>
+          <li><a href="services.html">Business banking</a></li>
+          <li><a href="services.html">Developer API</a></li>
+          <li><a href="services.html">Pricing</a></li>
+          <li><a href="services.html">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html">Our team</a></li>
+          <li><a href="about.html">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Status page</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 VioletBank, Inc. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

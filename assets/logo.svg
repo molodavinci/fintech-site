@@ -1,7 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="40" viewBox="0 0 120 40" fill="none">
-  <rect width="120" height="40" rx="6" fill="#000"/>
-  <g transform="translate(12,8)">
-    <circle cx="10" cy="12" r="8" fill="#6A00FF" />
-    <rect x="24" y="6" width="58" height="12" rx="3" fill="#FFF" opacity="0.06"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 180 44" fill="none">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Shield icon -->
+  <g filter="url(#glow)">
+    <!-- Shield body -->
+    <path d="M22 4 L38 8 L38 22 C38 30 22 40 22 40 C22 40 6 30 6 22 L6 8 Z"
+          fill="url(#shieldGrad)" opacity="0.15"/>
+    <path d="M22 4 L38 8 L38 22 C38 30 22 40 22 40 C22 40 6 30 6 22 L6 8 Z"
+          stroke="url(#shieldGrad)" stroke-width="1.5" fill="none"/>
+
+    <!-- V letterform inside shield -->
+    <path d="M14 14 L22 28 L30 14" stroke="#A78BFA" stroke-width="2.8"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M14 14 L22 28 L30 14" stroke="white" stroke-width="1.4"
+          stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
   </g>
+
+  <!-- Wordmark: VioletBank -->
+  <!-- "Violet" in white -->
+  <text x="50" y="28"
+        font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif"
+        font-size="17"
+        font-weight="700"
+        letter-spacing="-0.3"
+        fill="white">Violet</text>
+
+  <!-- "Bank" in purple gradient simulation via two rects clip -->
+  <text x="101" y="28"
+        font-family="'Space Grotesk', 'Segoe UI', system-ui, sans-serif"
+        font-size="17"
+        font-weight="700"
+        letter-spacing="-0.3"
+        fill="#A78BFA">Bank</text>
 </svg>

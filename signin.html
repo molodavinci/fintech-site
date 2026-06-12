@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account — VioletBank</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    /* ── Sign-in page layout ── */
+    .auth-page {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg);
+    }
+
+    /* ── Left panel: branding ── */
+    .auth-brand {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px 56px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0c0c16 0%, #10081e 100%);
+    }
+    .auth-brand::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 30%, rgba(139,92,246,0.22) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 80% 75%, rgba(124,58,237,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .auth-brand-logo {
+      position: relative;
+      z-index: 1;
+    }
+    .auth-brand-logo img { height: 38px; display: block; }
+
+    .auth-brand-body {
+      position: relative;
+      z-index: 1;
+    }
+    .auth-brand-body h2 {
+      font-family: var(--font-d);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .auth-brand-body h2 span {
+      background: linear-gradient(135deg, var(--purple-l), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .auth-brand-body p {
+      font-family: var(--font-b);
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 340px;
+    }
+
+    .auth-brand-features {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .auth-feat {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-b);
+      font-size: 0.9rem;
+      color: var(--text-2);
+    }
+    .auth-feat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(139,92,246,0.15);
+      border: 1px solid rgba(139,92,246,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .auth-feat-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--purple-l);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Right panel: form ── */
+    .auth-form-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      background: var(--bg);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .auth-card-header {
+      margin-bottom: 36px;
+    }
+    .auth-card-header h1 {
+      font-family: var(--font-d);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .auth-card-header p {
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+      color: var(--text-m);
+    }
+    .auth-card-header p a {
+      color: var(--purple-l);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .auth-card-header p a:hover { color: var(--purple-xl); }
+
+    /* ── Form fields ── */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .form-label {
+      font-family: var(--font-b);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-2);
+      letter-spacing: 0.01em;
+    }
+    .form-label .req {
+      color: var(--purple-l);
+      margin-left: 2px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-m);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+      transition: stroke 0.2s;
+    }
+    .form-input {
+      width: 100%;
+      padding: 13px 16px 13px 42px;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    .form-input::placeholder { color: var(--text-m); }
+    .form-input:focus {
+      border-color: var(--purple);
+      background: rgba(139,92,246,0.06);
+      box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+    }
+    .form-input:focus + .input-icon,
+    .input-wrap:focus-within .input-icon {
+      stroke: var(--purple-l);
+    }
+
+    /* Password toggle */
+    .pw-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--text-m);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    .pw-toggle:hover { color: var(--purple-l); }
+    .pw-toggle svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Password strength bar */
+    .pw-strength {
+      margin-top: 8px;
+      display: none;
+    }
+    .pw-strength.visible { display: block; }
+    .pw-strength-bar {
+      height: 3px;
+      border-radius: 99px;
+      background: var(--border);
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .pw-strength-fill {
+      height: 100%;
+      border-radius: 99px;
+      width: 0%;
+      transition: width 0.3s, background 0.3s;
+    }
+    .pw-strength-label {
+      font-family: var(--font-b);
+      font-size: 0.75rem;
+      color: var(--text-m);
+    }
+
+    /* Terms checkbox */
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .form-check input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      background: rgba(255,255,255,0.04);
+      accent-color: var(--purple);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .form-check label {
+      font-family: var(--font-b);
+      font-size: 0.85rem;
+      color: var(--text-m);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .form-check label a {
+      color: var(--purple-l);
+      text-decoration: none;
+    }
+    .form-check label a:hover { text-decoration: underline; }
+
+    /* Submit button */
+    .btn-auth {
+      width: 100%;
+      padding: 15px 24px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-d));
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-d);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(139,92,246,0.3);
+      letter-spacing: 0.01em;
+    }
+    .btn-auth:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(139,92,246,0.4);
+    }
+    .btn-auth:active { transform: translateY(0); }
+    .btn-auth svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Divider */
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .auth-divider span {
+      font-family: var(--font-b);
+      font-size: 0.78rem;
+      color: var(--text-m);
+      white-space: nowrap;
+    }
+
+    /* Social buttons */
+    .social-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .btn-social {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      font-family: var(--font-b);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-social:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .btn-social svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* Error message */
+    .form-error {
+      font-family: var(--font-b);
+      font-size: 0.8rem;
+      color: #f87171;
+      margin-top: 5px;
+      display: none;
+    }
+    .form-group.has-error .form-input { border-color: #f87171; }
+    .form-group.has-error .form-error { display: block; }
+
+    /* Success state */
+    .auth-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .auth-success.visible { display: flex; }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(139,92,246,0.15);
+      border: 1.5px solid rgba(139,92,246,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      animation: scaleIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes scaleIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--purple-l);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .auth-success h2 {
+      font-family: var(--font-d);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .auth-success p {
+      font-family: var(--font-b);
+      color: var(--text-m);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .auth-page { grid-template-columns: 1fr; }
+      .auth-brand { display: none; }
+      .auth-form-panel { padding: 32px 20px; align-items: flex-start; padding-top: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ambient blobs (reuse from main site) -->
+<div class="blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
+
+<div class="auth-page">
+
+  <!-- ── Left: Brand panel ── -->
+  <aside class="auth-brand">
+    <div class="auth-brand-logo">
+      <a href="index.html" aria-label="VioletBank home">
+        <img src="assets/logo.svg" alt="VioletBank"/>
+      </a>
+    </div>
+
+    <div class="auth-brand-body">
+      <h2>Banking that works<br>as fast as <span>you do.</span></h2>
+      <p>Join 500,000+ individuals and businesses managing their money with VioletBank — the smarter, faster way to bank.</p>
+    </div>
+
+    <div class="auth-brand-features">
+      <div class="auth-feat">
+        <div class="auth-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>256-bit encryption on every transaction</span>
+      </div>
+      <div class="auth-feat">
+        <div class="auth-feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <span>Instant transfers in under 3 seconds</span>
+      </div>
+      <div class="auth-feat">
+        <div class="auth-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <span>FDIC insured up to $250,000</span>
+      </div>
+      <div class="auth-feat">
+        <div class="auth-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+        </div>
+        <span>No hidden fees, ever</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── Right: Form panel ── -->
+  <main class="auth-form-panel" id="main-content">
+    <div class="auth-card">
+
+      <!-- Header -->
+      <div class="auth-card-header">
+        <h1>Create your account</h1>
+        <p>Already have an account? <a href="#">Sign in instead</a></p>
+      </div>
+
+      <!-- Social sign-up -->
+      <div class="social-btns">
+        <a href="#" class="btn-social" aria-label="Continue with Google">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Google
+        </a>
+        <a href="#" class="btn-social" aria-label="Continue with Apple">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.7 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.56-1.32 3.1-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          Apple
+        </a>
+      </div>
+
+      <div class="auth-divider"><span>or register with email</span></div>
+
+      <!-- Registration form -->
+      <form id="register-form" novalidate>
+
+        <div class="form-group" id="group-name">
+          <label class="form-label" for="full-name">Full name <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input class="form-input" type="text" id="full-name" name="full-name"
+                   placeholder="Jane Doe" autocomplete="name" required/>
+          </div>
+          <span class="form-error" id="error-name">Please enter your full name.</span>
+        </div>
+
+        <div class="form-group" id="group-email">
+          <label class="form-label" for="email">Email address <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <input class="form-input" type="email" id="email" name="email"
+                   placeholder="jane@example.com" autocomplete="email" required/>
+          </div>
+          <span class="form-error" id="error-email">Please enter a valid email address.</span>
+        </div>
+
+        <div class="form-group" id="group-password">
+          <label class="form-label" for="password">Password <span class="req">*</span></label>
+          <div class="input-wrap">
+            <svg class="input-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input class="form-input" type="password" id="password" name="password"
+                   placeholder="Min. 8 characters" autocomplete="new-password" required/>
+            <button type="button" class="pw-toggle" id="pw-toggle" aria-label="Show password">
+              <svg id="eye-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="pw-strength" id="pw-strength">
+            <div class="pw-strength-bar"><div class="pw-strength-fill" id="pw-fill"></div></div>
+            <span class="pw-strength-label" id="pw-label">Weak</span>
+          </div>
+          <span class="form-error" id="error-password">Password must be at least 8 characters.</span>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" id="terms" name="terms" required/>
+          <label for="terms">
+            I agree to VioletBank's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-auth" id="submit-btn">
+          Create account
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+
+      </form>
+
+      <!-- Success state (hidden until form submits) -->
+      <div class="auth-success" id="auth-success" aria-live="polite">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2>You're all set!</h2>
+        <p>Your VioletBank account has been created.<br>Welcome aboard — let's get you started.</p>
+        <a href="index.html" class="btn-auth" style="text-decoration:none; width:auto; padding:14px 32px;">
+          Go to dashboard
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script>
+  /* ── Password visibility toggle ── */
+  const pwInput  = document.getElementById('password');
+  const pwToggle = document.getElementById('pw-toggle');
+  const eyeIcon  = document.getElementById('eye-icon');
+
+  const eyeOpen   = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+  const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+
+  pwToggle.addEventListener('click', () => {
+    const show = pwInput.type === 'password';
+    pwInput.type = show ? 'text' : 'password';
+    eyeIcon.innerHTML = show ? eyeClosed : eyeOpen;
+    pwToggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  });
+
+  /* ── Password strength ── */
+  const pwStrength = document.getElementById('pw-strength');
+  const pwFill     = document.getElementById('pw-fill');
+  const pwLabel    = document.getElementById('pw-label');
+
+  function getStrength(pw) {
+    let score = 0;
+    if (pw.length >= 8)  score++;
+    if (pw.length >= 12) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    return score;
+  }
+
+  pwInput.addEventListener('input', () => {
+    const pw = pwInput.value;
+    if (!pw) { pwStrength.classList.remove('visible'); return; }
+    pwStrength.classList.add('visible');
+    const score = getStrength(pw);
+    const levels = [
+      { label: 'Very weak', color: '#f87171', pct: '15%' },
+      { label: 'Weak',      color: '#fb923c', pct: '30%' },
+      { label: 'Fair',      color: '#facc15', pct: '55%' },
+      { label: 'Good',      color: '#34d399', pct: '75%' },
+      { label: 'Strong',    color: '#a78bfa', pct: '100%' },
+    ];
+    const lvl = levels[Math.min(score, 4)];
+    pwFill.style.width      = lvl.pct;
+    pwFill.style.background = lvl.color;
+    pwLabel.textContent     = lvl.label;
+    pwLabel.style.color     = lvl.color;
+  });
+
+  /* ── Form validation & submit ── */
+  const form       = document.getElementById('register-form');
+  const nameInput  = document.getElementById('full-name');
+  const emailInput = document.getElementById('email');
+
+  function setError(groupId, show) {
+    document.getElementById(groupId).classList.toggle('has-error', show);
+  }
+
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const nameVal  = nameInput.value.trim();
+    const emailVal = emailInput.value.trim();
+    const pwVal    = pwInput.value;
+    const terms    = document.getElementById('terms').checked;
+
+    setError('group-name',     !nameVal);
+    setError('group-email',    !validateEmail(emailVal));
+    setError('group-password', pwVal.length < 8);
+
+    if (!nameVal || !validateEmail(emailVal) || pwVal.length < 8 || !terms) {
+      valid = false;
+    }
+
+    if (!terms) {
+      /* Briefly flash checkbox label */
+      const label = document.querySelector('.form-check label');
+      label.style.color = '#f87171';
+      setTimeout(() => label.style.color = '', 2000);
+    }
+
+    if (!valid) return;
+
+    /* Success */
+    form.style.display = 'none';
+    document.querySelector('.auth-card-header').style.display = 'none';
+    document.querySelector('.social-btns').style.display      = 'none';
+    document.querySelector('.auth-divider').style.display     = 'none';
+    document.getElementById('auth-success').classList.add('visible');
+  });
+
+  /* ── Real-time validation clear ── */
+  nameInput.addEventListener('input',  () => setError('group-name',  false));
+  emailInput.addEventListener('blur',  () => {
+    if (emailInput.value) setError('group-email', !validateEmail(emailInput.value.trim()));
+  });
+  emailInput.addEventListener('input', () => setError('group-email', false));
+  pwInput.addEventListener('input',    () => {
+    if (pwInput.value.length >= 8) setError('group-password', false);
+  });
+</script>
+</body>
+</html>
